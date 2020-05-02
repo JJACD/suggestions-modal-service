@@ -1,21 +1,33 @@
 {
   "name": "suggestions-modal-service",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon app.js",
+    "build": "webpack -d --watch"
+  },
+  "autho": "Jeremy Ho",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
     "express": "^4.16.4",
     "http-errors": "^1.6.3",
     "jade": "~1.11.0",
     "mongoose": "^5.9.10",
     "morgan": "~1.9.1",
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
