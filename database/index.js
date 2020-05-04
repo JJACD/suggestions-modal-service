@@ -1,6 +1,6 @@
 var config = require('./config.js')
 var mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://testuser:${config.password}@cluster0-x3i24.mongodb.net/test`, {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/test', {useUnifiedTopology: true, useNewUrlParser: true});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -29,19 +29,19 @@ const suggestionsSchema = mongoose.Schema({
 
 
 
-const feedbackSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  rec_rating: Number,
-  exp_rating: Number,
-  comment: String,
-  followup: {
-    request: Boolean,
-    name: String,
-    email: String
-  },
-  screencapture: String,
-});
+// const feedbackSchema = mongoose.Schema({
+//   _id: mongoose.Schema.Types.ObjectId,
+//   rec_rating: Number,
+//   exp_rating: Number,
+//   comment: String,
+//   followup: {
+//     request: Boolean,
+//     name: String,
+//     email: String
+//   },
+//   screencapture: String,
+// });
 
 
 module.exports = mongoose.model('Suggestionsdata', suggestionsSchema);
-module.exports = mongoose.model('Feedbackdata', feedbackSchema);
+// module.exports = mongoose.model('Feedbackdata', feedbackSchema);
