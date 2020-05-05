@@ -8,7 +8,7 @@ router.get('/products', (req, res) => {
   Suggestionsdata.find()
   .exec()
   .then(doc => {
-    console.log(doc);
+    //console.log(doc);
     res.status(200).json(doc);
   })
   .catch(err => {

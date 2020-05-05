@@ -1,13 +1,77 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ box-sizing: border-box;
+  font-family: Calibre, Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.suggestion-container{
+  z-index: 1;
+
+  margin: auto;
+  box-sizing: border-box;
+  /* display: -webkit-box;
+  display: -moz-flex;
+  display: flex;
+  -webkit-box-flex: 0;
+  -moz-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap; */
+  margin-right: -.3125rem;
+  margin-left: -.3125rem;
+  max-width: 100%;
 }
 
+.carousel-main {
+  -webkit-transform: none;
+  position: relative;
+  margin: auto;
+  max-width: 1322px;
+  cursor: grab
+}
+.headline-h1 {
+  text-align: center;
+  font-size: 3rem;
+
+}
+.carousel{
+  max-width: 25%;
+  position: static;
+
+}
+.story-product-tile-story-carousel-container{
+margin-right: 10px;
+max-width: 100%;
+}
+.imagecontainer {
+  max-width: 100%;
+  margin-right: 10px;
+  cursor: pointer
+}
 .sliderPhoto {
-  width: 219.75px;
-  margin-right: 20px;
+  max-width: 100%;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  text-align: left;
+  cursor: pointer;
+  margin: .9375rem 0 .4375rem;
+}
+.price {
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: left;
+  display: block;
+  margin: 0 0 .9375rem;
+}
+.currency {
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: .08125rem;
 }
