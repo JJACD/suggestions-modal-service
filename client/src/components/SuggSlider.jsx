@@ -1,6 +1,8 @@
 import React from 'react';
 import {useSwipeable, Swipeable} from 'react-swipeable';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { ButtonBack, ButtonFirst, ButtonLast, ButtonNext,
+  CarouselProvider, DotGroup, ImageWithZoom, Slide, Slider, } from 'pure-react-carousel';
+  
 
 const SuggSlider = (props) =>{
 
@@ -87,6 +89,7 @@ const productsArray = props.products.slice(0, 4)
         naturalSlideWidth={400}
         naturalSlideHeight={500}
         totalSlides={4}
+        visiblelides={4}
         step={1}
         isIntrinsicHeight={true}
         hasMasterSpinner
@@ -105,6 +108,11 @@ const productsArray = props.products.slice(0, 4)
           {randomimageContainer3}
           </Slide>
         </Slider>
+        <ButtonFirst>First</ButtonFirst>
+        <ButtonBack>Back</ButtonBack>
+        <ButtonNext>Next</ButtonNext>
+        <ButtonLast>Last</ButtonLast>
+        <DotGroup />
       </CarouselProvider>
 
 

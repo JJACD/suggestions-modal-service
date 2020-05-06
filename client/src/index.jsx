@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import SuggSlider from './components/SuggSlider.jsx'
-import navigationheader from './components/navigationheader.jsx'
+import Navigationheader from './components/navigationheader.jsx'
+import Navheader from './components/header.jsx'
+
 //import router from '../../routes/products.js'
 
 class App extends React.Component{
@@ -46,11 +48,21 @@ class App extends React.Component{
   }
   render() {
     return (
-      <div className ="suggestion-container">
-        <div className ="carousel-main"><SuggSlider products = {this.state.products} /></div>
+      <div>
+        <div className ="navbar-container">
+        <Navheader />
+        </div>
+        <div className ="suggestion-container">
+          <div className ="carousel-main"><SuggSlider products = {this.state.products}/></div>
+          <div className ="carousel-main"><SuggSlider products = {this.state.products}/></div>
+          <div className ="carousel-main"><SuggSlider products = {this.state.products}/></div>
+        </div>
       </div>
-    )
+    );
   };
 };
 
 ReactDom.render(<App />, document.getElementById('root'));
+
+
+

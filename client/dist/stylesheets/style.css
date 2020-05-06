@@ -4,21 +4,9 @@ body {
 }
 
 .suggestion-container{
-  z-index: 1;
-
+  position: relative;
   margin: auto;
   box-sizing: border-box;
-  /* display: -webkit-box;
-  display: -moz-flex;
-  display: flex;
-  -webkit-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  flex: 0 1 auto;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -moz-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: wrap; */
   margin-right: -.3125rem;
   margin-left: -.3125rem;
   max-width: 100%;
@@ -37,8 +25,9 @@ body {
 
 }
 .carousel{
+  list-style-type: none;
   max-width: 25%;
-  position: static;
+  position: relative;
 
 }
 .story-product-tile-story-carousel-container{
@@ -73,5 +62,24 @@ max-width: 100%;
   font-size: .75rem;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: .08125rem;
+  letter-spacing: .00125rem;
+}
+
+ .mega-nav {
+  position: relative;
+  top: 0px;
+  margin: auto;
+  background-color:white;
+}
+
+.headerlogo{
+  margin-left: auto;
+  max-width: 4rem;
+  max-height: 4rem;
+
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  min-width: 1322px;
 }
