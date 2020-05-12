@@ -50,12 +50,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="navbar-container-container">
-          <div className="navbar-container">
-            <Navheader />
-          </div>
+            <Navheader products={this.state.products} />
 
-        </div>
         <div className="suggestion-container">
           <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
           <div className="carousel-main"><SuggSlider products={this.state.products} /></div>

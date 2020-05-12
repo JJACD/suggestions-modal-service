@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,25 +16,49 @@ import classnames from 'classnames'
 
 const Navheader = (props) => {
 
+const randomProd1 = props.products[0];
+const title = randomProd1.productname
+const [currentproduct, setProduct] = useState()
+useEffect(() =>{
+  setProduct(randomProd1)
 
-const [scrollPos, setscroll]= useState(window.pageYOffset)
+})
+
+console.log(currentproduct)
+
+const [scrollPos, setScroll]= useState(window.pageYOffset)
 const [visible, setVisible] = useState(true)
 
 
-const prevscrollPos = useRef()
+const prevscrollRef = useRef()
+//console.log(prevscrollRef)
+useEffect(() => {
+  prevscrollRef.current = scrollPos
+})
+const prevscrollPos = prevscrollRef.current
 
 useEffect(() =>{
-  function handlescrollpos(){
-    setscroll(window.pageYOffset)
-  }
+function handlescrollpos(){
+    setScroll(window.pageYOffset)
+    if (prevscrollPos > "500"){
+      setVisible(prevscrollPos > scrollPos)
 
-  setVisible(scrollPos > window.pageYOffset)
+    } else {
+      setVisible(true)
+    }
+  }
+  window.addEventListener("scroll", handlescrollpos)
+  return () => window.removeEventListener("scroll", handlescrollpos)
 })
 
-console.log(visible)
+console.log( "prev", prevscrollPos, "current", scrollPos)
+console.log(!visible)
 
   return (
-  <div className={classnames("navbar-header", {"navbar-header-hidden": true})}>
+    <div>
+  <div className= {classnames("navbar-container-container",{"navbar-header-hidden": !visible})} >
+    <div className="navbar-container">
+    <div className="navbar-header">
     <Navbar
       bg="light"
       variant="light"
@@ -519,6 +543,22 @@ console.log(visible)
     </Navbar>
 
   </div>
+  </div>
+  </div>
+
+  <div className={classnames("product-nav-container",{"product-nav-hidden": visible})}>
+  <Navbar
+   bg="light"
+      variant="light"
+      sticky="top"
+      expand="lg">
+        <Container className = "product-nav">
+    <Navbar.Brand href="#home">{title}</Navbar.Brand>
+    <Button variant ="danger">SELECT SIZE</Button>
+          </Container>
+  </Navbar>
+  </div>
+</div>
 );
   };
 
