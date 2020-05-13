@@ -119,6 +119,15 @@ const SuggSlider = (props) => {
           <Slide index={0}>
             {randomimageContainer}
           </Slide>
+          <Slide index={1}>
+            {randomimageContainer1}
+          </Slide>
+          <Slide index={2}>
+            {randomimageContainer2}
+          </Slide>
+          <Slide index={3}>
+            {randomimageContainer3}
+          </Slide>
         </Slider>
       </CarouselProvider>
 

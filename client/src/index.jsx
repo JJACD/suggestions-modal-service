@@ -54,10 +54,6 @@ class App extends React.Component {
 
         <div className="suggestion-container">
           <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
-          <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
-          <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
-          <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
-          <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
         </div>
       </div>
     );

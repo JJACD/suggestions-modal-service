@@ -23,14 +23,13 @@ const Navheader = (props) => {
     setProduct(randomProd1);
   });
 
-  console.log(currentproduct);
 
   const [scrollPos, setScroll] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
 
 
   const prevscrollRef = useRef();
-  // console.log(prevscrollRef)
+
   useEffect(() => {
     prevscrollRef.current = scrollPos;
   });
@@ -116,7 +115,7 @@ const Navheader = (props) => {
                                       <td>Hair Accessories</td>
                                     </tr>
                                     <tr>
-                                      <td>Mather's Day Gifts</td>
+                                      <td>Mother's Day Gifts</td>
                                       <td>Hoodies & Sweatshirts</td>
                                       <td>Sweaters</td>
                                       <td>Hats</td>
