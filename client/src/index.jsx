@@ -34,7 +34,10 @@ class App extends React.Component {
   // -------make this more dyanamic, temperat literal male/femal/ into the endpoints. Pulls only the data needed.
   getData() {
     axios
-      .get('/api/products')
+      .get('http://localhost:3005/api/products', {headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }})
       .then((data) => {
         this.setState({
           products: data.data,

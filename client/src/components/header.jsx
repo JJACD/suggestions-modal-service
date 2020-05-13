@@ -48,9 +48,6 @@ const Navheader = (props) => {
     return () => window.removeEventListener('scroll', handlescrollpos);
   });
 
-  console.log('prev', prevscrollPos, 'current', scrollPos);
-  console.log(!visible);
-
   return (
     <div>
       <div className={classnames('navbar-container-container', { 'navbar-header-hidden': !visible })}>

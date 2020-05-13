@@ -9,6 +9,7 @@ router.get('/products', (req, res) => {
   .exec()
   .then(doc => {
     //console.log(doc);
+    res.send(doc)
     res.status(200).json(doc);
   })
   .catch(err => {
