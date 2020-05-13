@@ -130,6 +130,9 @@ const Navheader = (props) => {
                                     <tr>
                                       <td>Science Of Feel</td>
                                       <td>Shirts</td>
+                                      <td>Tank Tops</td>
+                                      <td>Water Bottles</td>
+                                    </tr>
                                     <tr>
                                       <td>Sale</td>
                                       <td>Shorts</td>
