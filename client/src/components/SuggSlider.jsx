@@ -107,6 +107,7 @@ const SuggSlider = (props) => {
     <div className="test">
       <h2 className="headline-h1">You may also like</h2>
       <CarouselProvider
+      className="suggestionscarousal"
         naturalSlideWidth={400}
         naturalSlideHeight={500}
         totalSlides={4}

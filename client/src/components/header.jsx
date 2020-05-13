@@ -60,16 +60,13 @@ const Navheader = (props) => {
               expand="lg"
             >
               <Container fluid className="lefthalf-nav-container">
-
                 <Navbar.Brand href="#home">
                   {' '}
                   <img className="headerlogo" src="https://luluproject.s3-us-west-1.amazonaws.com/1200px-Lululemon_Athletica_logo.svg.png" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-
                   <Nav className="mr-aut">
-
                     <NavDropdown title="WOMEN" className="womendropdown">
                       <Container fluid className="background-overlay-container" />
                       <Container fluid className="dropdowntophalf">
@@ -499,7 +496,7 @@ const Navheader = (props) => {
                         </Container>
                       </Container>
                     </NavDropdown>
-                    <Nav.Link href="#mother'sdaygift">MOTHER'S DAY GIFTS</Nav.Link>
+                    <Nav.Link href="#HOMEWORKOUTS">HOME WORKOUTS</Nav.Link>
 
                   </Nav>
                 </Navbar.Collapse>
