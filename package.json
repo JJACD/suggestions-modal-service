@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "seed-db": "node seed.js"
   },
-  "autho": "Jeremy Ho",
+  "author": "Jeremy Ho",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
