@@ -16,25 +16,26 @@ import Table from 'react-bootstrap/Table';
 import classnames from 'classnames';
 
 const Navheader = (props) => {
+  const searchresults = props.searchresults
   const randomProd1 = props.products[0];
   const title = randomProd1.productname;
+
   const [currentproduct, setProduct] = useState();
   useEffect(() => {
     setProduct(randomProd1);
   });
 
-
   const [scrollPos, setScroll] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
+  const [searchinpt, setSearchinpt] = useState(null)
+
 
 
   const prevscrollRef = useRef();
-
   useEffect(() => {
     prevscrollRef.current = scrollPos;
   });
   const prevscrollPos = prevscrollRef.current;
-
   useEffect(() => {
     function handlescrollpos() {
       setScroll(window.pageYOffset);
@@ -46,6 +47,7 @@ const Navheader = (props) => {
     }
     window.addEventListener('scroll', handlescrollpos);
     return () => window.removeEventListener('scroll', handlescrollpos);
+
   });
 
   return (
@@ -74,7 +76,7 @@ const Navheader = (props) => {
                           <Container className="dropdownelements">
                             <Container className="dropdownelements-columns-container">
                               <Container className="elements-column">
-                                <Table bordeless="true">
+                                <Table borderless="true">
                                   <thead>
                                     <tr>
                                       <th>What's New</th>
@@ -515,7 +517,7 @@ const Navheader = (props) => {
                     </Container>
                     <Container fluid className="searchbar-container">
 
-                      <FormControl custom="true" type="text" placeholder=" Search" className="mr-sm-2" />
+                      <FormControl custom="true" type="text" placeholder="     Search" className="mr-sm-2" onChange={props.handlesearchchange}/>
                       <Form inline />
                     </Container>
                   </Container>

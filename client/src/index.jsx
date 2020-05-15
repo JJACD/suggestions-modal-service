@@ -27,8 +27,27 @@ class App extends React.Component {
           bestseller: '',
         },
       ],
+      searchedproducts: [
+        {
+          productid: '',
+          productimgurl: '',
+          productname: 'Loading....',
+          productprice: '',
+          producttype: {
+            collection: '',
+            category: '',
+            gender: '',
+            subcategory: '',
+          },
+          activitytype: '',
+          bestseller: '',
+        },
+      ],
+      searchinput: '',
     };
     this.getData = this.getData.bind(this);
+    this.handlesearchchange = this.handlesearchchange.bind(this);
+    //this.handlesearch = this.handlesearch.bind(this);
   }
 
   // -------make this more dyanamic, temperat literal male/femal/ into the endpoints. Pulls only the data needed.
@@ -50,10 +69,46 @@ class App extends React.Component {
     this.getData();
   }
 
+  handlesearchchange(e){
+    this.setState({
+      searchinput: e.target.value
+    })
+    if (e.target.value.length >= 3){
+      //this.handlesearch(e.target.value)
+      axios
+      .post(`http://localhost:3005/api/search`,
+      {productname: e.target.value}
+      )
+      .then((data) => {
+        console.log("return from axios", data);
+        this.setState({
+          searchedproducts: data.data
+        })
+      })
+      .catch();
+    }
+  }
+
+  // handlesearch(input){
+  //   console.log("axios searching for", input)
+  //   axios
+  //   .get(`http://localhost:3005/api/search`, {this.searchinput},
+  //   {headers: {
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Content-Type': 'application/json'
+  //   }})
+  //   .then((data) => {
+  //     console.log("return from axios", data);
+  //   })
+  //   .catch();
+  // }
+
+
+
   render() {
     return (
       <div>
-            <Navheader products={this.state.products} />
+            <Navheader products={this.state.products} handlesearchchange={this.handlesearchchange} searchinput={this.searchinput} searchresults ={this.state.searchedproducts}/>
 
         <div className="suggestion-container">
           <div className="carousel-main"><SuggSlider products={this.state.products} /></div>
