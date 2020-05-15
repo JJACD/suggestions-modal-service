@@ -21,7 +21,8 @@ router.get('/products', (req, res) => {
   })
 });
 router.post('/search', (req, res) => {
-  console.log("req.body value HERE", req.body.productname)
+  // console.log(req.body)
+  // console.log("req.body value HERE", req.body.productname)
   Suggestionsdata.find({"productname": { $regex: req.body.productname, $options: 'i'}})
   .exec()
   .then(doc => {

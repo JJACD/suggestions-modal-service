@@ -279,3 +279,8 @@ width: 100%;
 .signinborder{
   color:black
 }
+
+.searchimage{
+  max-width: 85px;
+  max-height: 102px;
+}
