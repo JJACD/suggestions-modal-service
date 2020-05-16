@@ -155,6 +155,7 @@ max-width: 100%;
   margin: auto
 }
 .navbar-container-container{
+  background-color: #f8f9fa !important
 z-index: 10;
 position:fixed;
 top:0;
@@ -188,12 +189,16 @@ width: 100%;
   max-width: 1322px;
   text-align: center
 }
+.product-nav-description{
+  max-width: 60%;
+  margin-right: 5px !important
+}
 .product-nav-description-container{
-
+  justify-content: flex-end !important;
   font-size: 1.0625rem;
   max-height: 76px;
   max-width: 30%;
-  margin-right: 0
+  margin-right: 0 !important
 }
 .navbar-header{
   max-width: 100%;

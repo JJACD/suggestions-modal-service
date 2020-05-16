@@ -1,29 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Overlay from 'react-bootstrap/Overlay'
+import Popover from 'react-bootstrap/Popover'
 
 
 const Searchbarmodal = (props) => {
   const productArray = props.products.slice(0,4)
   const searchedproducts = productArray.map(((product) => (
-    <div>
-      <img className="searchimage" src= {product.productimgurl} />
-      <span>{product.productname}</span>
+    <div key={product.productid}>
+      <img className="searchimage" src= {product.productimgurl} href="" />
+      <a href="#">{product.productname}</a>
     </div>
   )))
-
   return(
     <div className="searchmodalcontainer">
-
-      <Modal show ={props.show} onHide ={props.onHide} >
-        <Modal.Header closeButton>
-          <Modal.Title>Top Suggestions</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{searchedproducts}</Modal.Body>
-
-      </Modal>
-      </div>
+<Overlay
+        show={props.show}
+        placement="bottom-start"
+        containerPadding={20}
+        target={props.target}
+        rootClose = {true}
+        onHide={props.onHide}
+      >
+        <Popover id="popover-contained">
+          <Popover.Title as="h3">Top Suggestions</Popover.Title>
+          <Popover.Content>
+          {searchedproducts}
+          </Popover.Content>
+        </Popover>
+      </Overlay>
+    </div>
   );
 };
 export default Searchbarmodal;

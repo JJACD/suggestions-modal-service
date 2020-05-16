@@ -5,8 +5,6 @@ import SuggSlider from './components/SuggSlider.jsx';
 import Navheader from './components/header.jsx';
 import Searchbarmodal from './components/Searchbarmodal.jsx'
 
-// import router from '../../routes/products.js'
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +26,7 @@ class App extends React.Component {
           bestseller: '',
         },
       ],
+
       searchedproducts: [
         {
           productid: '',
@@ -44,18 +43,22 @@ class App extends React.Component {
           bestseller: '',
         },
       ],
+
       searchinput: '',
+
       show: false,
+
+      target: "",
+
+      cartItemCount: "1",
     };
+
     this.getData = this.getData.bind(this);
     this.handlesearchchange = this.handlesearchchange.bind(this);
     this.handleModal =this.handleModal.bind(this)
     this.handlesearchpost = this.handlesearchpost.bind(this);
-
   }
 
-
-  // -------make this more dyanamic, temperat literal male/femal/ into the endpoints. Pulls only the data needed.
   getData() {
     axios
       .get('http://localhost:3005/api/products', {headers: {
@@ -76,14 +79,18 @@ class App extends React.Component {
 
   handlesearchchange(e){
     this.setState({
-      searchinput: e.target.value
+      searchinput: e.target.value,
+      target: e.target
     })
     if (e.target.value.length >= 3){
       this.setState({
         show: true
       })
       this.handlesearchpost()
-
+    } else if (e.target.value.length < 3){
+      this.setState({
+        show:false
+      })
     }
   }
 
@@ -106,29 +113,12 @@ class App extends React.Component {
     });
   }
 
-
-  // handlesearch(input){
-  //   console.log("axios searching for", input)
-  //   axios
-  //   .get(`http://localhost:3005/api/search`, {this.searchinput},
-  //   {headers: {
-  //     'Access-Control-Allow-Origin': '*',
-  //     'Content-Type': 'application/json'
-  //   }})
-  //   .then((data) => {
-  //     console.log("return from axios", data);
-  //   })
-  //   .catch();
-  // }
-
-
-
   render() {
     return (
       <div>
-        <Navheader products={this.state.products} handlesearchchange={this.handlesearchchange} searchinput={this.searchinput} />
+        <Navheader products={this.state.products} handlesearchchange={this.handlesearchchange} searchinput={this.searchinput} cartItemCount={this.state.cartItemCount}/>
         <div className="search-container">
-          <Searchbarmodal show={this.state.show} onHide={this.handleModal} products={this.state.searchedproducts}/>
+          <Searchbarmodal show={this.state.show} onHide={this.handleModal} products={this.state.searchedproducts} target = {this.state.target}/>
         </div>
         <div className="suggestion-container">
           <div className="carousel-main"><SuggSlider products={this.state.products} /></div>

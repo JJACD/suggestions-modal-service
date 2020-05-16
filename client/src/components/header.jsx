@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Overlay from 'react-bootstrap/Overlay';
 import Table from 'react-bootstrap/Table';
+import Image from 'react-bootstrap/Image';
 import classnames from 'classnames';
 
 const Navheader = (props) => {
@@ -29,12 +30,11 @@ const Navheader = (props) => {
   const [visible, setVisible] = useState(true);
   const [searchinpt, setSearchinpt] = useState(null)
 
-
-
   const prevscrollRef = useRef();
   useEffect(() => {
     prevscrollRef.current = scrollPos;
   });
+
   const prevscrollPos = prevscrollRef.current;
   useEffect(() => {
     function handlescrollpos() {
@@ -47,7 +47,30 @@ const Navheader = (props) => {
     }
     window.addEventListener('scroll', handlescrollpos);
     return () => window.removeEventListener('scroll', handlescrollpos);
+  });
 
+
+  const [prodscrollPos, setprodScroll] = useState(window.pageYOffset);
+  const [prodvisible, setprodVisible] = useState(true);
+
+  const prodprevscrollRef = useRef();
+  useEffect(() => {
+    prodprevscrollRef.current = prodscrollPos;
+  });
+
+  const prodprevscrollPos = prodprevscrollRef.current;
+  useEffect(() => {
+    function handleprodscrollpos() {
+      setprodScroll(window.pageYOffset);
+      if (prevscrollPos > '600') {
+        setprodVisible(prevscrollPos > scrollPos);
+
+      } else {
+        setprodVisible(true);
+      }
+    }
+    window.addEventListener('scroll', handleprodscrollpos);
+    return () => window.removeEventListener('scroll', handleprodscrollpos);
   });
 
   return (
@@ -503,44 +526,35 @@ const Navheader = (props) => {
                   </Nav>
                 </Navbar.Collapse>
               </Container>
-
               <Container fluid className="rightsidecontainer">
                 <Row>
                   <Col>
-
                     <Nav.Link className="signinborder" href="#signin">SIGN IN</Nav.Link>
                   </Col>
                   <Container fluid className="searchcontainer">
-
                     <Container fluid className="searchbarlogo-container">
                       <img className="searchbarlogo" src="https://luluproject.s3-us-west-1.amazonaws.com/searchicon.svg" />
                     </Container>
                     <Container fluid className="searchbar-container">
-
-                      <FormControl custom="true" type="text" placeholder="     Search" className="mr-sm-2" onChange={props.handlesearchchange}/>
+                      <FormControl custom="true" type="text" placeholder="    Search" className="mr-sm-2" onChange={props.handlesearchchange}/>
                       <Form inline />
                     </Container>
                   </Container>
                   <Col xs={1}>
                     <Container fluid className="cartcontainer">
-                      <p className="cartNumber">1</p>
+                      <p className="cartNumber">{props.cartItemCount}</p>
                       <img className="shoppingcartlogo" src="https://luluproject.s3-us-west-1.amazonaws.com/athletic+apparel+%2B+technical+clothing+_+lululemon-2.svg" />
                     </Container>
                   </Col>
-
                 </Row>
-
               </Container>
-
-
             </Navbar>
-
           </div>
         </div>
       </div>
 
       <div className={classnames('product-nav-container', { 'product-nav-hidden': visible })}>
-        <Navbar
+        <Navbar fluid
           bg="light"
           variant="light"
           sticky="top"
@@ -548,14 +562,12 @@ const Navheader = (props) => {
         >
           <Container fluid className="product-nav">
             <Navbar.Brand href="#home">{title}</Navbar.Brand>
-            <Container fluid>
+            <Container fluid className= "product-nav-description" >
               <Container fluid className="product-nav-description-container">
-                <Nav.Item>Colour:</Nav.Item>
-                <Nav.Item>Size:</Nav.Item>
-                <Nav.Item>Inseam:</Nav.Item>
+                <Nav.Item>Colour: </Nav.Item>
+                <Image src="https://lulupics.s3.us-east-2.amazonaws.com/Icons/Harbor+Blue.webp" roundedCircle/>
               </Container>
             </Container>
-
             <Button variant="danger" size="sm">SELECT SIZE</Button>
           </Container>
         </Navbar>
