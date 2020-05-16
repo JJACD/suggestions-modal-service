@@ -554,7 +554,7 @@ const Navheader = (props) => {
       </div>
 
       <div className={classnames('product-nav-container', { 'product-nav-hidden': visible })}>
-        <Navbar fluid
+        <Navbar
           bg="light"
           variant="light"
           sticky="top"
